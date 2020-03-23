@@ -11,6 +11,10 @@ const layout = (props) => {
                 styles={css`
                     html {
                         font-size: 62.5%;
+                        box-sizing: border-box;
+                    }
+                    *, *:before, *:before {
+                        box-sizing: inherit;
                     }
                     body {
                         font-size: 18px;
