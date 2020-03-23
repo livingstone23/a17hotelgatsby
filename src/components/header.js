@@ -13,11 +13,11 @@ const EnlaceHome = styled(Link)`
 
 
 
-const header = () => {
+const Header = () => {
     return (
         <header
             css={css`
-                background-color: #222;
+                background-color: rgba(44, 62, 80);
                 padding: 1rem;
             `}
         >
@@ -47,4 +47,4 @@ const header = () => {
     );
 };
 
-export default header;
+export default Header;

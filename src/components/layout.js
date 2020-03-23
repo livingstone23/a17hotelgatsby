@@ -2,9 +2,16 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Global, css } from '@emotion/core';
 import Header from './header';
+import Footer from './footer';
+import UseSeo from '../hooks/use-seo';
 
 
 const layout = (props) => {
+
+    const seo = UseSeo();
+
+    const { siteName, fallbackSeo: { description, title } } = seo;
+
     return (
         <>
             <Global 
@@ -40,13 +47,17 @@ const layout = (props) => {
                 `}
             />
             <Helmet>
-                <title>Restaurante La Cabañita</title>
+                <title>{title}</title>
+                <meta name="description" content={description} /> 
                 <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
                 <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto:400,700&display=swap" rel="stylesheet" />
             </Helmet>
 
             <Header />
-            {props.children}
+                {props.children}
+            <Footer 
+                title={title}
+            />
         </>
     );
 };
